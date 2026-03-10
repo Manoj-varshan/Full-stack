@@ -1,0 +1,175 @@
+/* ============================================================
+   streamvault — Player Page Styles
+   ============================================================ */
+
+/* ── Player Container ──────────────────────────── */
+.player-container {
+    position: relative;
+    background: #000;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ── Video Wrapper (16:9 Theater Mode) ─────────── */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 85vh;
+    background: #000;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ── Quality Badge (top-right overlay) ─────────── */
+.quality-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.quality-480p {
+    background: #6b6b6b;
+    color: #fff;
+}
+
+.quality-1080p {
+    background: #c0c0c0;
+    color: #000;
+}
+
+.quality-4k {
+    background: #f5c518;
+    color: #000;
+}
+
+/* ── Player Controls Bar (below video, not overlapping) ── */
+.player-controls {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.92);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.controls-left {
+    flex: 1;
+}
+
+.controls-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.ctrl-btn {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ctrl-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Ad Overlay (Free tier) ────────────────────── */
+.ad-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    backdrop-filter: blur(4px);
+}
+
+.ad-content {
+    background: var(--bg-card);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-lg);
+    padding: 36px 40px;
+    max-width: 460px;
+    text-align: center;
+    position: relative;
+}
+
+/* ── Content Info Section ──────────────────────── */
+.content-info-section {
+    padding: 32px 4% 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 32px;
+}
+
+.info-sidebar {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    height: fit-content;
+}
+
+.info-stat-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.88rem;
+}
+
+.info-stat-row:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-sidebar {
+        order: -1;
+    }
+}
